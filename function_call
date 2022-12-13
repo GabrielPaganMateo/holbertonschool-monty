@@ -1,0 +1,27 @@
+#include "monty.h"
+/**
+ * function_call - call the function for stack or queue manipulation
+ * @opcode: code operation
+ * @number: number to be used
+ * Return: nothing
+ */
+void (*function_call(char *opcode, unsigned int line_number))(stack_t *stack, int n)
+{
+	int i = 0;
+	instruction_t functions[] = {
+		{"push", push},
+		{"pall", pall},
+		{NULL, NULL}
+	};
+
+	while (i < 2)
+	{
+		if (strcmp(opcode, functions[i].opcode) == 0)
+		{
+			return (functions[i].f);
+		}
+		i++;
+	}
+	return (NULL);
+}
+
