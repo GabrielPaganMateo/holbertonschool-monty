@@ -29,12 +29,12 @@ int main(int argc, char *argv[])
 
 	while (getline(&line, &buflen, file) != -1)
 	{
+		line_number++;
 		token = strtok(line, " \n");
 		while (token != NULL)
 		{
 			tokens[i] = token;
 			i++;
-			line_number++;
 			if (i >= 2)
 			{
 				i = i * 2;
