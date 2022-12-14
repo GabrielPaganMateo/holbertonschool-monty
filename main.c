@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	{
 		line_number++;
 		tokens = tokenization(line, " \n");
-		call_function(tokens)(&stack, line_number);
+		call_function(tokens)(&stack, line_number, line);
 		free_grid(tokens);
 		free(line);
 		tokens = NULL;

@@ -3,13 +3,18 @@ char **tokens = NULL;
 /**
  * push - push to an element to the stack
  */
-void push(stack_t** stack, unsigned int line_number)
+void push(stack_t** stack, unsigned int line_number, char *line)
 {
 	stack_t *newnode = malloc(sizeof(stack_t));
 
 	if (tokens[1] == NULL || isdigit(*tokens[1]) == 0)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		free(line);
+		free_grid(tokens);
+		free(newnode);
+		free_stack(*stack);
+		/*close file*/
 		exit(EXIT_FAILURE);
 	}
 
@@ -21,9 +26,10 @@ void push(stack_t** stack, unsigned int line_number)
 /**
  * pall - print all
  */
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, unsigned int line_number, char *line)
 {
 	stack_t *head = *stack;
+	(void)line;
 
 	while (head != NULL)
 	{
