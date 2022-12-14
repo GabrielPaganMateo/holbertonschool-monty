@@ -44,14 +44,11 @@ int main(int argc, char *argv[])
 			}
 			token = strtok(NULL, " \n");
 		}
+		tokens[i] = NULL;
 		printf("%s ", tokens[0]);
-		if (tokens[1] != NULL)
-		{
-			printf("%s\n", tokens[1]);
-			num_arg = atoi(tokens[1]);
-		}
+		printf("%s\n", tokens[1]);
+		num_arg = atoi(tokens[1]);
 		push(&stack, num_arg);
-
 	}
 	pall(stack);
 

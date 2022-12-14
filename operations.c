@@ -16,9 +16,11 @@ void push(stack_t** stack, int n)
  */
 void pall(stack_t *stack)
 {
-	while (stack != NULL)
+	stack_t *head = stack;
+
+	while (head != NULL)
 	{
-		printf("%i\n", stack->n);
-		stack = stack->next;
+		printf("%i\n", head->n);
+		head = head->next;
 	}
 }
