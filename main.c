@@ -1,5 +1,4 @@
 #include "monty.h"
-#include "numberARG.h"
 /**
  * main - main function of monty program, accepts command for updating
  * stacks & queues
@@ -12,9 +11,6 @@ int main(int argc, char *argv[])
 	size_t buflen = 0;
 
 	/*tokenization*/
-	char *token;
-	char **tokens = malloc(sizeof(char*));
-	int i = 0;
 
 	/*define stack & head*/
 	stack_t *stack = NULL;
@@ -30,22 +26,19 @@ int main(int argc, char *argv[])
 	while (getline(&line, &buflen, file) != -1)
 	{
 		line_number++;
-		token = strtok(line, " \n");
-		while (token != NULL)
-		{
-			tokens[i] = token;
-			i++;
-			if (i >= 2)
-			{
-				i = i * 2;
-				tokens = realloc(tokens, i * sizeof(char*));
-			}
-			token = strtok(NULL, " \n");
-		}
-		tokens[i] = NULL;
-		num_arg = atoi(tokens[1]);
+		tokens = tokenization(line, " \n");
 		call_function(tokens)(&stack, line_number);
+		free_grid(tokens);
+		free(line);
+		tokens = NULL;
+		line = NULL;
+		buflen = 0;
 	}
+	/*free_stack*/
+	free_stack(stack);
+	free(line);
+	line = NULL;
 	fclose(file);
-	return (0);
+	file = NULL;
+	exit(0);
 }

@@ -1,6 +1,5 @@
 #include "monty.h"
-#include "numberARG.h"
-int num_arg = 0;
+char **tokens = NULL;
 /**
  * push - push to an element to the stack
  */
@@ -8,7 +7,7 @@ void push(stack_t** stack, unsigned int line_number)
 {
 	stack_t *newnode = malloc(sizeof(stack_t));
 
-	newnode->n = num_arg;
+	newnode->n = atoi(tokens[1]);
 	newnode->next = *stack;
 	newnode->prev = NULL;
 	*stack = newnode;
