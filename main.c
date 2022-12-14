@@ -20,12 +20,7 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 
 	/*line_number*/
-	static int line_number = 0;
-
-	/*atoi int*/
-
-	/*Push string*/
-	char *PUSH = "push";
+	static unsigned int line_number = 0;
 
 	if (argc != 2)
 		exit(EXIT_FAILURE);
@@ -48,17 +43,9 @@ int main(int argc, char *argv[])
 			token = strtok(NULL, " \n");
 		}
 		tokens[i] = NULL;
-		printf("%s ", tokens[0]);
-		if (strcmp(tokens[0], PUSH) == 0)
-		{
-			printf("%s\n", tokens[1]);
-			num_arg = atoi(tokens[1]);
-			push(&stack);
-		}
+		num_arg = atoi(tokens[1]);
+		call_function(tokens)(&stack, line_number);
 	}
-	printf("\n");
-	pall(stack);
-
 	fclose(file);
 	return (0);
 }

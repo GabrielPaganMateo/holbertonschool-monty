@@ -4,7 +4,7 @@ int num_arg = 0;
 /**
  * push - push to an element to the stack
  */
-void push(stack_t** stack)
+void push(stack_t** stack, unsigned int line_number)
 {
 	stack_t *newnode = malloc(sizeof(stack_t));
 
@@ -12,17 +12,27 @@ void push(stack_t** stack)
 	newnode->next = *stack;
 	newnode->prev = NULL;
 	*stack = newnode;
+
+	if (line_number)
+	{
+
+	}
 }
 /**
  * pall - print all
  */
-void pall(stack_t *stack)
+void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *head = stack;
+	stack_t *head = *stack;
 
 	while (head != NULL)
 	{
 		printf("%i\n", head->n);
 		head = head->next;
+	}
+
+	if (line_number)
+	{
+
 	}
 }

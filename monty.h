@@ -38,7 +38,7 @@ typedef struct instruction_s
 char *opcode;
 void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-int num_arg_definition(char **tokens);
-void push(stack_t **stack);
-void pall(stack_t *stack);
+void (*call_function(char **tokens))(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
 #endif

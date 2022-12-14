@@ -5,7 +5,7 @@
  * @number: number to be used
  * Return: nothing
  */
-void (*call_function(char **tokens))(stack_t *stack, unsigned int line_number)
+void (*call_function(char **tokens))(stack_t **stack, unsigned int line_number)
 {
 	int i = 0;
 	instruction_t functions[] = {
@@ -16,7 +16,7 @@ void (*call_function(char **tokens))(stack_t *stack, unsigned int line_number)
 
 	while (i < 2)
 	{
-		if (strcmp(opcode, functions[i].opcode) == 0)
+		if (strcmp(tokens[0], functions[i].opcode) == 0)
 		{
 			return (functions[i].f);
 		}
