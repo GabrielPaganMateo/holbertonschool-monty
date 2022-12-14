@@ -5,7 +5,7 @@
  * @number: number to be used
  * Return: nothing
  */
-void (*function_call(char *opcode, unsigned int line_number))(stack_t *stack, int n)
+void (*call_function(char **tokens))(stack_t *stack, unsigned int line_number)
 {
 	int i = 0;
 	instruction_t functions[] = {

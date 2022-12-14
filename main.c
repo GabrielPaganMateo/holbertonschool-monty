@@ -1,4 +1,5 @@
 #include "monty.h"
+#include "numberARG.h"
 /**
  * main - main function of monty program, accepts command for updating
  * stacks & queues
@@ -22,7 +23,9 @@ int main(int argc, char *argv[])
 	static int line_number = 0;
 
 	/*atoi int*/
-	int num_arg;
+
+	/*Push string*/
+	char *PUSH = "push";
 
 	if (argc != 2)
 		exit(EXIT_FAILURE);
@@ -46,10 +49,14 @@ int main(int argc, char *argv[])
 		}
 		tokens[i] = NULL;
 		printf("%s ", tokens[0]);
-		printf("%s\n", tokens[1]);
-		num_arg = atoi(tokens[1]);
-		push(&stack, num_arg);
+		if (strcmp(tokens[0], PUSH) == 0)
+		{
+			printf("%s\n", tokens[1]);
+			num_arg = atoi(tokens[1]);
+			push(&stack);
+		}
 	}
+	printf("\n");
 	pall(stack);
 
 	fclose(file);

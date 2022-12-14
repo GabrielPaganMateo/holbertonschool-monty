@@ -1,12 +1,14 @@
 #include "monty.h"
+#include "numberARG.h"
+int num_arg = 0;
 /**
  * push - push to an element to the stack
  */
-void push(stack_t** stack, int n)
+void push(stack_t** stack)
 {
 	stack_t *newnode = malloc(sizeof(stack_t));
 
-	newnode->n = n;
+	newnode->n = num_arg;
 	newnode->next = *stack;
 	newnode->prev = NULL;
 	*stack = newnode;
