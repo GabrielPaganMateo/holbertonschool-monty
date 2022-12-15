@@ -10,14 +10,16 @@ int main(int argc, char *argv[])
 	char *line = NULL;
 	size_t buflen = 0;
 
-	/*tokenization*/
-
 	/*define stack & head*/
 	stack_t *stack = NULL;
 
 	/*line_number*/
-	static unsigned int line_number = 0;
+	static unsigned int line_number;
 
+	/*new_line*/
+	char *new_line = "\n";
+
+	line_number = 0;
 	if (argc != 2)
 		exit(EXIT_FAILURE);
 
@@ -36,6 +38,11 @@ int main(int argc, char *argv[])
 
 	while (getline(&line, &buflen, file) != -1)
 	{
+		if (strcmp(line, new_line) == 0)
+		{
+			continue;
+		}
+
 		line_number++;
 		tokens = tokenization(line, " \n");
 		call_function(tokens)(&stack, line_number, line, file);
