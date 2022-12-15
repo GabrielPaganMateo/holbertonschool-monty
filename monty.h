@@ -46,4 +46,5 @@ char **tokenization(char *ptr, char *delim);
 extern char **tokens;
 void free_grid(char **grid);
 void free_stack(stack_t *head);
+int check_line(char *line);
 #endif
