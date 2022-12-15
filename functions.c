@@ -7,7 +7,10 @@ void push(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 {
 	stack_t *newnode = malloc(sizeof(stack_t));
 
-	if (tokens[1] == NULL || isdigit(*tokens[1]) != 0)
+	/*int i;
+	i = atoi(tokens[1]);
+	printf("%i\n", i);*/
+	if (tokens[1] == NULL || check_arg(tokens[1]) == 0)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free(line);

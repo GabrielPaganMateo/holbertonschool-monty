@@ -47,4 +47,5 @@ extern char **tokens;
 void free_grid(char **grid);
 void free_stack(stack_t *head);
 int check_line(char *line);
+int check_arg(char *argument);
 #endif
