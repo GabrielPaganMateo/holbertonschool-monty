@@ -11,7 +11,7 @@ void (*call_function(char **tokens))(stack_t **stack, unsigned int line_number, 
 	instruction_t functions[] = {
 		{"push", push},
 		{"pall", pall},
-		{NULL, NULL}
+		{NULL, invalid}
 	};
 
 	while (i < 2)
@@ -21,6 +21,10 @@ void (*call_function(char **tokens))(stack_t **stack, unsigned int line_number, 
 			return (functions[i].f);
 		}
 		i++;
+		if (i == 2)
+		{
+			return (functions[i].f);
+		}
 	}
 	return (NULL);
 }

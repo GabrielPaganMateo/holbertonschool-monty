@@ -31,15 +31,11 @@ void pall(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 	stack_t *head = *stack;
 	(void)line;
 	(void)file;
+	(void)line_number;
 
 	while (head != NULL)
 	{
 		printf("%i\n", head->n);
 		head = head->next;
-	}
-
-	if (line_number)
-	{
-
 	}
 }
