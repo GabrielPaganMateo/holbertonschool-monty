@@ -11,21 +11,21 @@ void (*call_function(char **tokens))(stack_t **stack, unsigned int line_number, 
 	instruction_t functions[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, invalid}
 	};
 
-	while (i < 3)
+	while (i < 4)
 	{
 		if (strcmp(tokens[0], functions[i].opcode) == 0)
 		{
 			return (functions[i].f);
 		}
 		i++;
-		/*if (i == 2)
+		if (i == 3)
 		{
 			return (functions[i].f);
 		}
-		*/
 	}
 	return (NULL);
 }
