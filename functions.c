@@ -7,7 +7,7 @@ void push(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 {
 	stack_t *newnode = malloc(sizeof(stack_t));
 
-	if (tokens[1] == NULL || isdigit(*tokens[1]) == 0)
+	if (tokens[1] == NULL || isdigit(*tokens[1]) != 0)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free(line);
@@ -17,6 +17,7 @@ void push(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
+
 
 	newnode->n = atoi(tokens[1]);
 	newnode->next = *stack;
