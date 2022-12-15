@@ -5,7 +5,7 @@
  * @number: number to be used
  * Return: nothing
  */
-void (*call_function(char **tokens))(stack_t **stack, unsigned int line_number, char *line)
+void (*call_function(char **tokens))(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 {
 	int i = 0;
 	instruction_t functions[] = {

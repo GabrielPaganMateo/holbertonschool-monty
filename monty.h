@@ -36,11 +36,11 @@ struct stack_s *next;
 typedef struct instruction_s
 {
 char *opcode;
-void (*f)(stack_t **stack, unsigned int line_number, char *line);
+void (*f)(stack_t **stack, unsigned int line_number, char *line, FILE *file);
 } instruction_t;
-void (*call_function(char **tokens))(stack_t **stack, unsigned int line_number, char *line);
-void push(stack_t **stack, unsigned int line_number, char *line);
-void pall(stack_t **stack, unsigned int line_number, char *line);
+void (*call_function(char **tokens))(stack_t **stack, unsigned int line_number, char *line, FILE *file);
+void push(stack_t **stack, unsigned int line_number, char *line, FILE *file);
+void pall(stack_t **stack, unsigned int line_number, char *line, FILE *file);
 char **tokenization(char *ptr, char *delim);
 extern char **tokens;
 void free_grid(char **grid);

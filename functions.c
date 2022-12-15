@@ -3,7 +3,7 @@ char **tokens = NULL;
 /**
  * push - push to an element to the stack
  */
-void push(stack_t** stack, unsigned int line_number, char *line)
+void push(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 {
 	stack_t *newnode = malloc(sizeof(stack_t));
 
@@ -14,7 +14,7 @@ void push(stack_t** stack, unsigned int line_number, char *line)
 		free_grid(tokens);
 		free(newnode);
 		free_stack(*stack);
-		/*close file*/
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 
@@ -26,10 +26,11 @@ void push(stack_t** stack, unsigned int line_number, char *line)
 /**
  * pall - print all
  */
-void pall(stack_t **stack, unsigned int line_number, char *line)
+void pall(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 {
 	stack_t *head = *stack;
 	(void)line;
+	(void)file;
 
 	while (head != NULL)
 	{
