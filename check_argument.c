@@ -14,7 +14,7 @@ int check_arg(char *argument)
 			{
 				if (argument[j] < 48 || argument[j] > 57)
 				{
-					return (1);
+					return (0);
 				}
 				j++;
 			}
