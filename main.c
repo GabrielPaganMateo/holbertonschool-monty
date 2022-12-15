@@ -11,7 +11,6 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	static unsigned int line_number;
 	char *new_line = "\n";
-	int checkLine = 1;
 
 	line_number = 0;
 	if (argc != 2)
@@ -29,15 +28,10 @@ int main(int argc, char *argv[])
 	}
 	while (getline(&line, &buflen, file) != -1)
 	{
-		checkLine++;
 		if (strcmp(line, new_line) == 0)
-		{
 			continue;
-		}
 		if (check_line(line) == 0)
-		{
 			continue;
-		}
 		line_number++;
 		tokens = tokenization(line, " \n");
 		call_function(tokens)(&stack, line_number, line, file);

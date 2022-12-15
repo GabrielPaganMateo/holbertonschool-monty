@@ -25,6 +25,10 @@ void push(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 	newnode->n = atoi(tokens[1]);
 	newnode->next = *stack;
 	newnode->prev = NULL;
+	if (*stack != NULL)
+	{
+		(*stack)->prev = newnode;
+	}
 	*stack = newnode;
 }
 /**
@@ -64,3 +68,32 @@ void pint(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * pop - removes top element of the stack
+ */
+void pop(stack_t **stack, unsigned int line_number, char *line, FILE *file)
+{
+	stack_t *head = *stack;
+
+	if (head != NULL)
+	{
+		*stack = (*stack)->next;
+		if (*stack != NULL)
+		{
+			(*stack)->prev = NULL;
+		}
+		free(head);
+	}
+	else
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		free(line);
+		free_grid(tokens);
+		free_stack(*stack);
+		fclose(file);
+		exit(EXIT_FAILURE);
+	}
+}
+
+
+

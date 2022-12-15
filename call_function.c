@@ -12,17 +12,18 @@ void (*call_function(char **tokens))(stack_t **stack, unsigned int line_number, 
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, invalid}
 	};
 
-	while (i < 4)
+	while (i < 5)
 	{
 		if (strcmp(tokens[0], functions[i].opcode) == 0)
 		{
 			return (functions[i].f);
 		}
 		i++;
-		if (i == 3)
+		if (i == 4)
 		{
 			return (functions[i].f);
 		}
