@@ -1,8 +1,12 @@
 #include "monty.h"
 /**
  * swap - swap top two elements of the stack
+ * @stack: stack
+ * @line_number: line from file
+ * @line: pointer to line
+ * @file: file opened
  */
-void swap(stack_t** stack, unsigned int line_number, char *line, FILE *file)
+void swap(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 {
 	stack_t *head = *stack;
 	stack_t *body;
@@ -33,8 +37,12 @@ void swap(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 }
 /**
  * add - adds the top two elements of the stack
+ * @stack: stack
+ * @line_number: line from file
+ * @line: pointer to line
+ * @file: file opened
  */
-void add(stack_t** stack, unsigned int line_number, char *line, FILE *file)
+void add(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 {
 	stack_t *head = *stack;
 	stack_t *body;
@@ -63,8 +71,12 @@ void add(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 }
 /**
  * nop - does nothing
+ * @stack: stack
+ * @line_number: line from file
+ * @line: pointer to line
+ * @file: file opened
  */
-void nop(stack_t** stack, unsigned int line_number, char *line, FILE *file)
+void nop(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 {
 	(void)stack;
 	(void)line_number;

@@ -1,11 +1,10 @@
 #include "monty.h"
 /**
- * function_call - call the function for stack or queue manipulation
- * @opcode: code operation
- * @number: number to be used
- * Return: nothing
+ * call_func - call the function for stack or queue manipulation
+ * @tokens: tokens
+ * Return: function
  */
-void (*call_function(char **tokens))(stack_t **stack, unsigned int line_number, char *line, FILE *file)
+void (*call_func(char **tokens))(stack_t **, unsigned int, char *, FILE *)
 {
 	int i = 0;
 	instruction_t functions[] = {

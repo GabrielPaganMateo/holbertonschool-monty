@@ -2,6 +2,9 @@
 /**
  * main - main function of monty program, accepts command for updating
  * stacks & queues
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: integer
  */
 int main(int argc, char *argv[])
 {
@@ -34,7 +37,7 @@ int main(int argc, char *argv[])
 			continue;
 		line_number++;
 		tokens = tokenization(line, " \n");
-		call_function(tokens)(&stack, line_number, line, file);
+		call_func(tokens)(&stack, line_number, line, file);
 		free_grid(tokens);
 		free(line);
 		tokens = NULL;
@@ -43,8 +46,6 @@ int main(int argc, char *argv[])
 	}
 	free_stack(stack);
 	free(line);
-	line = NULL;
 	fclose(file);
-	file = NULL;
 	exit(0);
 }

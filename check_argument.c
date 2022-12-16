@@ -1,5 +1,8 @@
-/*
- *
+#include "monty.h"
+/**
+ * check_arg - checks if argument is string of numbers without any letters
+ * @argument: string
+ * Return: 1 if contains no characters and is only numbers, 0 if otherwise
  */
 int check_arg(char *argument)
 {

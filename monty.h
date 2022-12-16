@@ -38,15 +38,15 @@ typedef struct instruction_s
 char *opcode;
 void (*f)(stack_t **stack, unsigned int line_number, char *line, FILE *file);
 } instruction_t;
-void (*call_function(char **tokens))(stack_t **stack, unsigned int line_number, char *line, FILE *file);
+void (*call_func(char **tokens))(stack_t **, unsigned int, char *, FILE *file);
 void push(stack_t **stack, unsigned int line_number, char *line, FILE *file);
 void pall(stack_t **stack, unsigned int line_number, char *line, FILE *file);
 void pint(stack_t **stack, unsigned int line_number, char *line, FILE *file);
 void pop(stack_t **stack, unsigned int line_number, char *line, FILE *file);
 void swap(stack_t **stack, unsigned int line_number, char *line, FILE *file);
 void add(stack_t **stack, unsigned int line_number, char *line, FILE *file);
-void nop(stack_t** stack, unsigned int line_number, char *line, FILE *file);
-void invalid(stack_t **stack, unsigned int line_number, char *line, FILE *file);
+void nop(stack_t **stack, unsigned int line_number, char *line, FILE *file);
+void invalid(stack_t **stack, unsigned int, char *line, FILE *file);
 char **tokenization(char *ptr, char *delim);
 extern char **tokens;
 void free_grid(char **grid);

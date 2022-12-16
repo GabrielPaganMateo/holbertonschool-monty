@@ -1,6 +1,10 @@
 #include "monty.h"
 /**
- *
+ * invalid - throws an error if function is not found
+ * @stack: stack
+ * @line_number: number of line
+ * @line: pointer to line
+ * @file: opened file
  */
 void invalid(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 {

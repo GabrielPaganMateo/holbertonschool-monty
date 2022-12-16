@@ -1,6 +1,8 @@
 #include "monty.h"
-/*
- *
+/**
+ * check_line - checks if line is empty
+ * @line: pointer to line
+ * Return: 0 if line is empty, 1 if line is not empty
  */
 int check_line(char *line)
 {

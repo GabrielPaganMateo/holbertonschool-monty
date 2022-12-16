@@ -2,14 +2,15 @@
 char **tokens = NULL;
 /**
  * push - push to an element to the stack
+ * @stack: stack
+ * @line_number: number of line
+ * @line: pointer to line
+ * @file: file opened
  */
-void push(stack_t** stack, unsigned int line_number, char *line, FILE *file)
+void push(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 {
 	stack_t *newnode = malloc(sizeof(stack_t));
 
-	/*int i;
-	i = atoi(tokens[1]);
-	printf("%i\n", i);*/
 	if (tokens[1] == NULL || check_arg(tokens[1]) == 0)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
@@ -33,6 +34,10 @@ void push(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 }
 /**
  * pall - print all
+ * @stack: stack
+ * @line_number: number of line
+ * @line: pointer to line
+ * @file: file opened
  */
 void pall(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 {
@@ -49,6 +54,10 @@ void pall(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 }
 /**
  * pint - print value at top
+ * @stack: stack
+ * @line_number: number of line
+ * @line: pointer to line
+ * @file: file opened
  */
 void pint(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 {
@@ -70,6 +79,10 @@ void pint(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 }
 /**
  * pop - removes top element of the stack
+ * @stack: stack
+ * @line_number: number of line
+ * @line: pointer to line
+ * @file: file opened
  */
 void pop(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 {
@@ -94,6 +107,3 @@ void pop(stack_t **stack, unsigned int line_number, char *line, FILE *file)
 		exit(EXIT_FAILURE);
 	}
 }
-
-
-
