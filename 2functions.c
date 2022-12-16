@@ -66,5 +66,8 @@ void add(stack_t** stack, unsigned int line_number, char *line, FILE *file)
  */
 void nop(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 {
-
+	(void)stack;
+	(void)line_number;
+	(void)line;
+	(void)file;
 }

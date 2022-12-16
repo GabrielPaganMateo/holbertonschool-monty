@@ -1,0 +1,5 @@
+nop
+nop
+nop
+push 1
+pint

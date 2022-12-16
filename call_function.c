@@ -19,14 +19,14 @@ void (*call_function(char **tokens))(stack_t **stack, unsigned int line_number, 
 		{NULL, invalid}
 	};
 
-	while (i < 7)
+	while (i < 8)
 	{
 		if (strcmp(tokens[0], functions[i].opcode) == 0)
 		{
 			return (functions[i].f);
 		}
 		i++;
-		if (i == 6)
+		if (i == 7)
 		{
 			return (functions[i].f);
 		}
