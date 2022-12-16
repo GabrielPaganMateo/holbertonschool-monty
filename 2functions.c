@@ -61,9 +61,10 @@ void add(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * nop - does nothing
+ */
+void nop(stack_t** stack, unsigned int line_number, char *line, FILE *file)
+{
 
-
-
-
-
-
+}

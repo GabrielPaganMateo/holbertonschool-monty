@@ -45,6 +45,7 @@ void pint(stack_t **stack, unsigned int line_number, char *line, FILE *file);
 void pop(stack_t **stack, unsigned int line_number, char *line, FILE *file);
 void swap(stack_t **stack, unsigned int line_number, char *line, FILE *file);
 void add(stack_t **stack, unsigned int line_number, char *line, FILE *file);
+void nop(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 void invalid(stack_t **stack, unsigned int line_number, char *line, FILE *file);
 char **tokenization(char *ptr, char *delim);
 extern char **tokens;
