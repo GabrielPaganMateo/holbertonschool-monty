@@ -5,18 +5,23 @@
 void swap(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 {
 	stack_t *head = *stack;
-	stack_t *body = (*stack)->next;
+	stack_t *body;
 	int head_value;
 	int body_value;
 
-	if (body != NULL)
+	if (head != NULL)
+	{
+		body = (*stack)->next;
+	}
+
+	if (head != NULL && body != NULL)
 	{
 		head_value = head->n;
 		body_value = body->n;
 		head->n = body_value;
 		body->n = head_value;
 	}
-	else if (body == NULL)
+	else
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		free(line);
@@ -26,6 +31,14 @@ void swap(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * add - adds the top two elements of the stack
+ */
+/*
+void add(stack_t** stack, unsigned int line_number, char *line, FILE *file)
+{
+	stack_t *head = *stack;
+	stac*/
 
 
 
