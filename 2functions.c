@@ -34,11 +34,36 @@ void swap(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 /**
  * add - adds the top two elements of the stack
  */
-/*
 void add(stack_t** stack, unsigned int line_number, char *line, FILE *file)
 {
 	stack_t *head = *stack;
-	stac*/
+	stack_t *body;
+
+	if (head != NULL)
+	{
+		body = (*stack)->next;
+	}
+
+	if (head != NULL && body != NULL)
+	{
+		body->n = body->n + head->n;
+		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
+		free(head);
+	}
+	else
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		free(line);
+		free_grid(tokens);
+		free_stack(*stack);
+		fclose(file);
+		exit(EXIT_FAILURE);
+	}
+}
+
+
+
 
 
 
